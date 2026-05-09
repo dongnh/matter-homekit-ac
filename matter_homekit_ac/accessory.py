@@ -53,6 +53,8 @@ class AcAccessory(Accessory):
             "CurrentTemperature",
             "CoolingThresholdTemperature",
         ]
+        if humidity_id:
+            chars.append("CurrentRelativeHumidity")
         svc = self.add_preload_service("HeaterCooler", chars=chars)
 
         self.active = svc.configure_char(
@@ -76,7 +78,6 @@ class AcAccessory(Accessory):
         )
 
         if humidity_id:
-            svc.add_optional_characteristic("CurrentRelativeHumidity")
             self.cur_humidity = svc.configure_char(
                 "CurrentRelativeHumidity", value=50.0,
             )
