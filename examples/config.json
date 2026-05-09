@@ -1,0 +1,12 @@
+{
+  "matter_url": "http://127.0.0.1:8080",
+  "bridge_name": "Matter AC",
+  "port": 51827,
+  "state_path": "/Users/panda/lighting/run/matter-homekit-ac/accessory.state",
+  "poll_interval": 5,
+  "accessories": [
+    {"ac_id": "dev_78c2bf4d", "name": "Office",      "humidity_id": "dev_073d3444"},
+    {"ac_id": "dev_9a0cb3dd", "name": "Living Room", "humidity_id": "dev_3eb829b1"},
+    {"ac_id": "dev_fe3628ea", "name": "Bedroom",     "humidity_id": "dev_1c970809"}
+  ]
+}
