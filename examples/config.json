@@ -6,7 +6,7 @@
   "poll_interval": 5,
   "accessories": [
     {"ac_id": "dev_78c2bf4d", "name": "Office",      "humidity_id": "dev_073d3444"},
-    {"ac_id": "dev_9a0cb3dd", "name": "Living Room", "humidity_id": "dev_3eb829b1"},
-    {"ac_id": "dev_fe3628ea", "name": "Bedroom",     "humidity_id": "dev_1c970809"}
+    {"ac_id": "dev_9a0cb3dd", "name": "Bedroom",     "humidity_id": "dev_3eb829b1"},
+    {"ac_id": "dev_fe3628ea", "name": "Living Room", "humidity_id": "dev_1c970809"}
   ]
 }
