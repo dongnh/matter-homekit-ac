@@ -4,6 +4,8 @@ A small HomeKit bridge that exposes air conditioners from a [Matter Web Controll
 
 ## Why
 
+<img width="993" height="698" alt="image" src="https://github.com/user-attachments/assets/4f8ae0f4-d572-4ebf-85e9-e3c512cdd1cd" />
+
 Vendor hubs that bridge IR air conditioners to Matter — including the Aqara M200 — do not forward their thermostat endpoints to Apple Home. The cluster is visible inside the hub's own fabric, but never appears as a tile in the Home app.
 
 This bridge fills that gap, and only that gap.
