@@ -44,7 +44,8 @@ class MatterClient:
         return self._get("/api/climate", {"id": dev_id})
 
     def set_ac(self, ac_id: str, on: Optional[bool] = None,
-               mode: Optional[int] = None, setpoint: Optional[float] = None) -> dict:
+               mode: Optional[int] = None, setpoint: Optional[float] = None,
+               fan_speed: Optional[int] = None) -> dict:
         body: dict = {"id": ac_id}
         if on is not None:
             body["on"] = on
@@ -52,4 +53,6 @@ class MatterClient:
             body["mode"] = mode
         if setpoint is not None:
             body["setpoint"] = setpoint
+        if fan_speed is not None:
+            body["fan_speed"] = int(fan_speed)
         return self._post("/api/ac", body)

@@ -12,9 +12,14 @@ This bridge fills that gap, and only that gap.
 
 ## What it does
 
-- Reads air conditioner state from `/api/acs` and `/api/climate`.
-- Writes power, mode, and cooling setpoint back through `/api/ac`.
-- Presents each AC as a single `HeaterCooler` tile, with the room's humidity attached.
+- Reads device state from `/api/acs`, `/api/ac`, `/api/climate`.
+- Writes power, mode, setpoint and (for heaters) fan speed back through `/api/ac`.
+- Two accessory shapes — pick per device with `kind`:
+  - `"ac"` (default): cooling HeaterCooler with `Auto`/`Cool` target and `CoolingThresholdTemperature`.
+  - `"heater"`: heating HeaterCooler with `Heat` target, `HeatingThresholdTemperature`,
+    and an optional `RotationSpeed` characteristic mapped to `/api/ac` `fan_speed`
+    (works with HomeKit-bridged Aqara Bathroom Heater T1 and similar via
+    [matter-homekit-bridge](https://github.com/dongnh/matter-homekit-bridge)).
 
 ## What it doesn't
 
@@ -38,10 +43,18 @@ A minimal config:
   "port": 51827,
   "state_path": "./accessory.state",
   "accessories": [
-    {"ac_id": "dev_9a0cb3dd", "name": "Living Room", "humidity_id": "dev_3eb829b1"}
+    {"ac_id": "dev_9a0cb3dd", "name": "Living Room", "humidity_id": "dev_3eb829b1"},
+    {"ac_id": "dev_bath_heater", "name": "Bathroom Heater", "kind": "heater"},
+    {"ac_id": "dev_480b_heater", "name": "Storage Heater", "kind": "heater", "fan": true}
   ]
 }
 ```
+
+Heater accessory options:
+
+- `kind`: `"heater"`.
+- `fan`: `true` (default) exposes `RotationSpeed`. Set `false` if the device has no fan.
+- `heating_range`: `[min, max]` in °C, default `[16, 30]`.
 
 Pair the bridge in the Home app the first time it starts — the setup code is printed to the log.
 

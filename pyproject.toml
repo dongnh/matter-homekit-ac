@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "matter-homekit-ac"
-version = "0.1.0"
-description = "HomeKit bridge that exposes Matter Web Controller thermostats as HeaterCooler accessories."
+version = "0.2.0"
+description = "HomeKit bridge that exposes Matter Web Controller air conditioners and heaters as HeaterCooler accessories."
 requires-python = ">=3.10"
 license = { text = "MIT" }
 dependencies = [
